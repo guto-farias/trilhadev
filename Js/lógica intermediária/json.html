@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <script>
+        //JSON == javascript object notation
+        //JSON.stringify  (transforma objeto em json)
+        //JSON.parse      (transforma json em objeto)
+
+        const people = [
+            {
+                id: 1,
+                name: "vito",
+                born: new Date("2002 08 06"),
+                cpf: 1231313131,
+                address: {
+                    city: "frai",
+                    street: "aaaa",
+                },
+            },
+
+            {
+                id: 2,
+                name: "aaaa",
+                born: new Date(" 1999 09 14"),
+                cpf: 3123187623,
+                street: {
+                    city: "vda",
+                    street: "whatever",
+                },
+            },
+        ]
+
+        console.log(people)
+        console.log("")
+        console.log(JSON.stringify(people))
+
+        let json = '[{"id":1,"name":"vito","born":"2002-08-06T03:00:00.000Z","cpf":1231313131,"address":{"city":"frai","street":"aaaa"}},{"id":2,"name":"aaaa","born":"1999-09-14T03:00:00.000Z","cpf":3123187623,"street":{"city":"vda","street":"whatever"}}]'
+        console.log(JSON.parse(json))
+
+    </script>
+</body>
+</html>

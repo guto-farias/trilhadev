@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array methods</title>
+</head>
+<body>
+    <script>
+        /*
+
+        //metodos iniciais
+
+        let array = ["Vito", "lucia", "PAULO", "fArid"]
+
+        array.push("Pedro")// add no ULTIMO endereço
+        array.unshift("vitolas")// add no PRIMEIRO endereço
+
+        let nome = array.shift()//exclui no primeiro endereço (retorna elemento removido)
+        console.log(nome)
+        nome = array.pop()// exclui no último endereço (retorna elemento removido)
+        console.log(nome)
+
+        console.log(array)
+
+
+
+        //localizar elemento no array
+
+        let locale = array.indexOf("PAULO")
+        console.log(locale)
+
+        for (let i = 0; i < array.length; i++) {
+            array[i] = array[i].toLocaleLowerCase();
+            
+        }
+
+        locale = array.indexOf("paulo")
+        console.log(locale)
+        console.log(array)
+
+        //splice remove "fatias" a partir de 1 elemento contando X
+        array.splice(locale, 2) // remove a partir do index do locale(no caso paulo) contando ele mesmo e 1 a frente
+        console.log(array)
+
+        */
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
+
+        //concatenar arrays
+
+        let set1 = [1,2,3,4,5]
+        let set2 = [6,7,8,9,10]
+        let set3 = []
+
+        set3 = set1.concat(set2)
+
+        console.log(set3)
+
+        */
+
+
+
+
+
+
+
+
+
+
+
+        /*
+
+        //FILTER filterrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+
+        let numbers = [2,5,8,18,15]
+
+        let res = []
+
+        //"opçao 1"
+        for(let i in numbers){// pega o indice do array
+            if(numbers[i]<8){
+                console.log(numbers[i])
+            }
+        }
+
+        //"opçao 2" // for of é mais correto de se utilizar
+        for(let i of numbers){// pega o ELEMENTO direto
+            if(i<8){
+                console.log(i)
+                res.push(i)
+            }
+        }
+
+        console.log(res)
+
+        //"opção 3" usando filter (uso o filter com base em um função, para "filtrar" o que preciso)
+
+        const bt10 = function(item){
+            return item > 10 //return false or true
+        }
+
+        numbers.filter(bt10)
+        console.log(numbers)
+
+        res = numbers.filter(bt10)
+        console.log(res)
+
+        */
+
+
+
+
+
+
+
+
+
+
+        /*
+
+        //usando filter num array de obj
+
+        const people = [
+            {name: "vito", gender: "M", age: 40},
+            {name: "beca", gender: "F", age: 20},
+            {name: "gustavo", gender: "M", age: 16},
+        ]
+
+        const adultMan = people.filter((p) => p.age >= 18 && p.gender === "M")// const adult recebe os elementos do array que entram na regra da função
+        console.log(adultMan)
+
+        */
+
+
+
+
+
+
+
+
+
+
+
+        // MAP mappppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp
+        /*
+        let nums = [3,4,5,6,3,12,342]
+        const double = nums.map((n) => Math.pow(n, 2)) // n ^ 2
+        console.log(double)
+
+        const fahrenheit = [0,32,56,72,100,200,300]
+        const celcius = fahrenheit.map((t) => Math.round(((t - 32) * 5) / 9)) //fórmula de conversao na arrow function
+        console.log(fahrenheit)
+        console.log(celcius)
+
+        const gurizes = [
+            {name: "ViTo", gender: "M", age: 40},
+            {name: "bECa", gender: "F", age: 20},
+            {name: "GUSTAavo", gender: "M", age: 16},
+        ]
+
+        const gurizesLower = gurizes.map((g) => g.name.toUpperCase()) // passo o objeto p como parametro ja que vou tratar ele, representando o gurizes
+        console.log(gurizesLower)
+
+        */
+
+
+
+
+
+
+
+
+
+
+        //REDUCE reduceeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+        //tem um callback como argumento, como as outras
+        //acumulador depende de um retorno
+
+        //confuso
+
+        const rdc = [10,5,15]
+
+        
+        /*function callback(acumulator, currentValue, index, array){
+            console.log(`acumulator`, acumulator)
+            console.log(`currentValue`, currentValue)
+            console.log(`index`, index)
+            console.log(`array`, array)
+            console.log("---")
+
+            return acumulator+1
+        }
+
+        rdc.reduce(callback, 0)
+
+        let soma = rdc.reduce((total, item) => total + item, 0)
+        console.log(soma) */
+
+        //soma de array padrao
+
+        function sumArray(array){
+            let res = 0
+            for(const n of array){
+                res += n 
+            }
+
+            return res
+        }
+
+        
+       // let somaArray = sumArray(rdc)
+    
+        //console.log(`soma`,somaArray)
+        
+        let avg = rdc.reduce((total, item, index) => (total + item) / (index+1), 0)//n entendi acho que está errado (CONFERIR AMANHA)
+        console.log("avg", avg)
+
+        function avgMy(array, sumArray){
+            let sum = sumArray(array)
+            console.log(sum) 
+            
+            let avg = sum / array.length
+            return avg
+        }
+
+        console.log(avgMy(rdc, sumArray))
+        
+/*
+        */
+
+    </script>
+    
+</body>
+</html>

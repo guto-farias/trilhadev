@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrow function</title>
+</head>
+<body>
+    <script>
+        //atribuindo uma funçao a uma constante (outra forma de escrever)
+        const sum = function (n1, n2){
+            let r = n1 + n2
+
+            return r
+        }
+
+        console.log(sum(3,4))
+
+        //exemplo arrow function seguindo a function acima
+        //normalmente é atribuida a uma constante
+        const sum2 = (n1, n2) =>{
+            let r = n1 + n2
+
+            return r
+        }
+
+        console.log(sum2(5,5))
+
+        //caso não possua retorno, posso eliminar as chaves {}, para uma sintaxe mais limpa
+        const autoMultiply = (n) => (n *= n)
+
+        console.log(autoMultiply(10))
+
+        const available = (name) => name.length > 5 ? "maior" : "menor"
+        console.log(available("felipao"))
+    </script>
+</body>
+</html>
