@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando CSS</title>
+
+    <style>
+        .test{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Manipulando Classes</h1>
+
+    <button id="btn-change">Altera classe</button>
+
+    <script>
+        const titleEl = document.querySelector("#title")
+        const buttonEl = document.querySelector("#btn-change")
+
+        buttonEl.addEventListener("click", () => {
+
+            if(titleEl.classList.contais("test")){
+                titleEl.classList.remove("test")
+            } else {
+                titleEl.classList.add("test")
+            }
+        })
+    </script>
+    
+</body>
+</html>
