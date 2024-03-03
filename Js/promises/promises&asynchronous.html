@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+    <button>exec</button>
+
+    <script>
+
+        let count = 0
+        function testPromise(){
+
+            const promiseCount = ++count
+
+            console.log("sync started")
+
+            new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if(promiseCount % 2 == 0) {
+                        resolve(promiseCount)
+                    } else {
+                        reject(promiseCount)
+                    }          
+                }, 1000)
+            }).then((value) => {
+                console.log(`async finished ${value}`)
+            }).catch((value) => {
+                console.log(`async reject ${value}`)
+            })
+
+            console.log("sync finished")
+        }
+
+        const buttonEl = document.querySelector("button")
+        buttonEl.addEventListener("click", testPromise)
+    </script>
+    
+</body>
+</html>
