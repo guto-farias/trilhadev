@@ -6,7 +6,7 @@
     <title>Dados github</title>
 </head>
 <body>
-    <button onclick="loadData()">Recuperar dados</button><br><br><br>
+    <button onclick="loadData()">Recuperar Dados</button><br><br><br>
 
     <script>
 
@@ -23,8 +23,11 @@
                     const avatarUrl = res.avatar_url
                     const followers = res.followers
                     const blogUrl = res.blog
+                    const repositories = res.public_repos
+                    const location = res.location
                     //console.log({name, avatarUrl, followers, blogUrl})
 
+                    
                     const avatarEl = document.createElement("img")
                     avatarEl.setAttribute("width", "128")
                     avatarEl.setAttribute("src", avatarUrl)//cria uma img de link, passando o link resgatado no github
@@ -32,15 +35,25 @@
                     const nameEl = document.createElement("h1")
                     nameEl.innerText = name
 
+                    const reposEl = document.createElement("p")
+                    reposEl.innerText = `Repositórios: ${repositories}`
+
                     const followersEl = document.createElement("p")
                     followersEl.innerText = `Followers: ${followers}`
+
+                    const locationEl = document.createElement("p")
+                    locationEl.innerText = location
 
                     const blogEl = document.createElement("a")
                     blogEl.setAttribute("href", `https://${blogUrl}`)
                     blogEl.innerText = blogUrl
 
+
+
                     document.body.appendChild(avatarEl)
                     document.body.appendChild(nameEl)
+                    document.body.appendChild(locationEl)
+                    document.body.appendChild(reposEl)
                     document.body.appendChild(followersEl)
                     document.body.appendChild(blogEl)
                 }
