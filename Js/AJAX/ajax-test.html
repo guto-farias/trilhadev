@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados github</title>
+</head>
+<body>
+    <button onclick="loadData()">Recuperar dados</button><br><br><br>
+
+    <script>
+
+        const loadData = () => {
+            xhr = new XMLHttpRequest() //trabalha com json e xml
+            xhr.open("GET", "https://api.github.com/users/guto-farias")
+            xhr.send(null) // envia a requisição
+
+            xhr.onreadystatechange = () => {  //retorno
+                if(xhr.readyState === 4){
+                    const res = JSON.parse(xhr.responseText)
+                    
+                    const name = res.name
+                    const avatarUrl = res.avatar_url
+                    const followers = res.followers
+                    const blogUrl = res.blog
+                    //console.log({name, avatarUrl, followers, blogUrl})
+
+                    const avatarEl = document.createElement("img")
+                    avatarEl.setAttribute("width", "128")
+                    avatarEl.setAttribute("src", avatarUrl)//cria uma img de link, passando o link resgatado no github
+
+                    const nameEl = document.createElement("h1")
+                    nameEl.innerText = name
+
+                    const followersEl = document.createElement("p")
+                    followersEl.innerText = `Followers: ${followers}`
+
+                    const blogEl = document.createElement("a")
+                    blogEl.setAttribute("href", `https://${blogUrl}`)
+                    blogEl.innerText = blogUrl
+
+                    document.body.appendChild(avatarEl)
+                    document.body.appendChild(nameEl)
+                    document.body.appendChild(followersEl)
+                    document.body.appendChild(blogEl)
+                }
+            }
+        }
+    </script>
+</body>
+</html>
