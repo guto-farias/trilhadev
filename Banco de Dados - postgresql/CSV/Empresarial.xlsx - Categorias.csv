@@ -1,0 +1,4 @@
+ID,Nome,Débito,Crédito,Situação
+1,Custo fixo,false,true,ATIVO
+2,Pedidos,true,false,ATIVO
+3,Custo variável,true,true,ATIVO
